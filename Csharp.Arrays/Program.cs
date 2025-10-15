@@ -1,5 +1,6 @@
 ﻿using ArraySumAverage;
 using System;
+using ReverseArrayApp;
 
 namespace SumOfNaturalNumbers
 {
@@ -7,55 +8,72 @@ namespace SumOfNaturalNumbers
     {
         static void Main(string[] args)
         {
-            if (1 == 0)
-            {
-                // Sum of n natural numbers
-                Console.Write("Enter a positive integer: ");
-                int n = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("enter SUMAVG for sum and average of numbers");
 
-                if (n <= 0)
-                {
-                    Console.WriteLine("Please enter a number greater than zero.");
-                    return;
-                }
+            //if (1 == 0)
+            //{
+            //    // Sum of n natural numbers
+            //    Console.Write("Enter a positive integer: ");
+            //    int n = Convert.ToInt32(Console.ReadLine());
 
-                // Create object of SumCalculator class
-                SumCalculator calculator = new SumCalculator();
+            //    if (n <= 0)
+            //    {
+            //        Console.WriteLine("Please enter a number greater than zero.");
+            //        return;
+            //    }
 
-                // Call the renamed method
-                int sum = calculator.NaturalAdd(n);
+            //    // Create object of SumCalculator class
+            //    SumCalculator calculator = new SumCalculator();
 
-                Console.WriteLine($"\nSum of first {n} natural numbers is: {sum}");
-            }
-            Console.Write("Enter the number of elements in the array: ");
-            int size = Convert.ToInt32(Console.ReadLine());
+            //    // Call the renamed method
+            //    int sum = calculator.NaturalAdd(n);
 
-            if (size <= 0)
-            {
-                Console.WriteLine("Array size must be greater than zero.");
-                return;
-            }
+            //    Console.WriteLine($"\nSum of first {n} natural numbers is: {sum}");
+            //}
+            //if (1 == 0)
+            //{
+            //    Console.Write("Enter the number of elements in the array: ");
+            //    int size = Convert.ToInt32(Console.ReadLine());
 
-            int[] numbers = new int[size];
+            //    if (size <= 0)
+            //    {
+            //        Console.WriteLine("Array size must be greater than zero.");
+            //        return;
+            //    }
 
-            // Take input for the array
-            for (int i = 0; i < size; i++)
-            {
-                Console.Write($"Enter element {i + 1}: ");
-                numbers[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            //    int[] numbers = new int[size];
 
-            // Create object of the helper class
-            ArrayHelper helper = new ArrayHelper();
+            //    // Take input for the array
+            //    for (int i = 0; i < size; i++)
+            //    {
+            //        Console.Write($"Enter element {i + 1}: ");
+            //        numbers[i] = Convert.ToInt32(Console.ReadLine());
+            //    }
 
-            // Call the method in separate file
-            var result = helper.Sumavg(numbers); // store tuple in 'result'
+            //    // Create object of the helper class
+            //    ArrayHelper helper = new ArrayHelper();
 
-            Console.WriteLine($"\nSum of array elements: {result.sum}");
-            Console.WriteLine($"Average of array elements: {result.avg}");
+            //    // Call the method in separate file
+            //    var result = helper.Sumavg(numbers); // store tuple in 'result'
 
+            //    Console.WriteLine($"\nSum of array elements: {result.sum}");
+            //    Console.WriteLine($"Average of array elements: {result.avg}");
 
+            //}
 
+            Console.WriteLine("Enter numbers separated by spaces:");
+            string input = Console.ReadLine();
+
+            // Convert input string to int array
+            int[] numbers = Reverse.ParseInput(input);
+
+            Console.WriteLine("\nOriginal array:");
+            Reverse.PrintArray(numbers);
+
+            int[] reversed = Reverse.ReverseArray(numbers);
+
+            Console.WriteLine("\nReversed array:");
+            Reverse.PrintArray(reversed);
 
         }
     }
