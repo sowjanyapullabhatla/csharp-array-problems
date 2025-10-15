@@ -6,8 +6,6 @@ namespace SumOfNaturalNumbers
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter a positive integer: ");
-            int n = Convert.ToInt32(Console.ReadLine());
 
             //if (1 == 0)
             //{
@@ -78,7 +76,8 @@ namespace SumOfNaturalNumbers
             //}
 
 
-            Console.WriteLine($"\nSum of first {n} natural numbers is: {sum}");
+           // Console.WriteLine($"\nSum of first {n} natural numbers is: {sum}");
+
         }
     }
 }
