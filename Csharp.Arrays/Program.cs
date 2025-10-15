@@ -61,19 +61,22 @@ namespace SumOfNaturalNumbers
 
             //}
 
-            Console.WriteLine("Enter numbers separated by spaces:");
-            string input = Console.ReadLine();
+            if (1 == 0)
+            {
+                Console.WriteLine("Enter numbers separated by spaces:");
+                string input = Console.ReadLine();
 
-            // Convert input string to int array
-            int[] numbers = Reverse.ParseInput(input);
+                // Convert input string to int array
+                int[] numbers = Reverse.ParseInput(input);
 
-            Console.WriteLine("\nOriginal array:");
-            Reverse.PrintArray(numbers);
+                Console.WriteLine("\nOriginal array:");
+                Reverse.PrintArray(numbers);
 
-            int[] reversed = Reverse.ReverseArray(numbers);
+                int[] reversed = Reverse.ReverseArray(numbers);
 
-            Console.WriteLine("\nReversed array:");
-            Reverse.PrintArray(reversed);
+                Console.WriteLine("\nReversed array:");
+                Reverse.PrintArray(reversed);
+            }
 
         }
     }
