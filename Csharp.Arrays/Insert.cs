@@ -67,5 +67,34 @@ namespace InsertArray
 
             return newArray;
         }
+        // 🔥 Generic method: Insert at any given position (0-based index)
+        public static int[] InsertAtGivenPosition(int[] originalArray, int newElement, int position)
+        {
+            // Validate position (must be between 0 and array.Length)
+            if (position < 0 || position > originalArray.Length)
+            {
+                Console.WriteLine("Invalid position! Position must be between 0 and " + originalArray.Length);
+                return originalArray; // return original unchanged
+            }
+
+            int[] newArray = new int[originalArray.Length + 1];
+
+            // Copy elements before position
+            for (int i = 0; i < position; i++)
+            {
+                newArray[i] = originalArray[i];
+            }
+
+            // Insert new element
+            newArray[position] = newElement;
+
+            // Copy remaining elements
+            for (int i = position; i < originalArray.Length; i++)
+            {
+                newArray[i + 1] = originalArray[i];
+            }
+
+            return newArray;
+        }
     }
 }

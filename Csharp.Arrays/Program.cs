@@ -85,7 +85,7 @@ namespace SumOfNaturalNumbers
             Console.WriteLine("Original Array: " + string.Join(", ", numbers));
             Console.Write("Enter a number to insert: ");
             int newNumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Select place to insert new element FIRST or MIDDLE or LAST");
+            Console.WriteLine($"Enter position (FIRST / MIDDLE / LAST / or a number 0-–{numbers.Length}):");
             Console.Write("Enter input word: ");
             string input = Console.ReadLine();
             int[] updatedArray;
@@ -101,8 +101,20 @@ namespace SumOfNaturalNumbers
                     updatedArray = Insert.InsertAtLastPosition(numbers, newNumber);
                     break;
                 default:
-                    Console.WriteLine("Invalid position! Please enter FIRST, MIDDLE, or LAST.");
-                    return;
+                    // 🧠 If user entered a number, try to parse it
+                    if (int.TryParse(input, out int userPosition))
+                    {
+                        // Convert user position (1-based) to array index (0-based)
+                        int index = userPosition - 1;
+                        updatedArray = Insert.InsertAtGivenPosition(numbers, newNumber, index  + 1);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input! Please enter FIRST, MIDDLE, LAST, or a number.");
+                        return;
+                    }
+                    break;
+
             }
 
             Console.WriteLine("\nUpdated Array: " + string.Join(", ", updatedArray));
