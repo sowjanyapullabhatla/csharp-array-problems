@@ -1,6 +1,8 @@
 ﻿using ArraySumAverage;
 using System;
 using ReverseArrayApp;
+using InsertArray;
+using System.ComponentModel.Design;
 
 namespace SumOfNaturalNumbers
 {
@@ -61,23 +63,49 @@ namespace SumOfNaturalNumbers
 
             //}
 
-            if (1 == 0)
+            //if (1 == 0)
+            //{
+            //    Console.WriteLine("Enter numbers separated by spaces:");
+            //    string input = Console.ReadLine();
+
+            //    // Convert input string to int array
+            //    int[] numbers = Reverse.ParseInput(input);
+
+            //    Console.WriteLine("\nOriginal array:");
+            //    Reverse.PrintArray(numbers);
+
+            //    int[] reversed = Reverse.ReverseArray(numbers);
+
+            //    Console.WriteLine("\nReversed array:");
+            //    Reverse.PrintArray(reversed);
+            //}
+
+            int[] numbers = { 2, 3, 4, 5 };
+
+            Console.WriteLine("Original Array: " + string.Join(", ", numbers));
+            Console.Write("Enter a number to insert: ");
+            int newNumber = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Select place to insert new element FIRST or MIDDLE or LAST");
+            Console.Write("Enter input word: ");
+            string input = Console.ReadLine();
+            int[] updatedArray;
+            switch (input)
             {
-                Console.WriteLine("Enter numbers separated by spaces:");
-                string input = Console.ReadLine();
-
-                // Convert input string to int array
-                int[] numbers = Reverse.ParseInput(input);
-
-                Console.WriteLine("\nOriginal array:");
-                Reverse.PrintArray(numbers);
-
-                int[] reversed = Reverse.ReverseArray(numbers);
-
-                Console.WriteLine("\nReversed array:");
-                Reverse.PrintArray(reversed);
+                case "FIRST":
+                    updatedArray = Insert.InsertAtFirstPosition(numbers, newNumber);
+                    break;
+                case "MIDDLE":
+                    updatedArray = Insert.InsertAtMiddlePosition(numbers, newNumber);
+                    break;
+                case "LAST":
+                    updatedArray = Insert.InsertAtLastPosition(numbers, newNumber);
+                    break;
+                default:
+                    Console.WriteLine("Invalid position! Please enter FIRST, MIDDLE, or LAST.");
+                    return;
             }
 
+            Console.WriteLine("\nUpdated Array: " + string.Join(", ", updatedArray));
         }
     }
 }
