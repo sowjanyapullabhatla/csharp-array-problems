@@ -2,7 +2,9 @@
 using System;
 using ReverseArrayApp;
 using InsertArray;
+using ArrayOperations;
 using System.ComponentModel.Design;
+
 
 namespace SumOfNaturalNumbers
 {
@@ -80,48 +82,76 @@ namespace SumOfNaturalNumbers
             //    Reverse.PrintArray(reversed);
             //}
 
-        //    if (1 == 0)
-        //    {
+            //    if (1 == 0)
+            //    {
 
-        //        int[] numbers = { 2, 3, 4, 5 };
+            //        int[] numbers = { 2, 3, 4, 5 };
 
-        //        Console.WriteLine("Original Array: " + string.Join(", ", numbers));
-        //        Console.Write("Enter a number to insert: ");
-        //        int newNumber = Convert.ToInt32(Console.ReadLine());
-        //        Console.WriteLine($"Enter position (FIRST / MIDDLE / LAST / or a number 0-–{numbers.Length}):");
-        //        Console.Write("Enter input word: ");
-        //        string input = Console.ReadLine();
-        //        int[] updatedArray;
-        //        switch (input)
-        //        {
-        //            case "FIRST":
-        //                updatedArray = Insert.InsertAtFirstPosition(numbers, newNumber);
-        //                break;
-        //            case "MIDDLE":
-        //                updatedArray = Insert.InsertAtMiddlePosition(numbers, newNumber);
-        //                break;
-        //            case "LAST":
-        //                updatedArray = Insert.InsertAtLastPosition(numbers, newNumber);
-        //                break;
-        //            default:
-        //                // 🧠 If user entered a number, try to parse it
-        //                if (int.TryParse(input, out int userPosition))
-        //                {
-        //                    // Convert user position (1-based) to array index (0-based)
-        //                    int index = userPosition - 1;
-        //                    updatedArray = Insert.InsertAtGivenPosition(numbers, newNumber, index + 1);
-        //                }
-        //                else
-        //                {
-        //                    Console.WriteLine("Invalid input! Please enter FIRST, MIDDLE, LAST, or a number.");
-        //                    return;
-        //                }
-        //                break;
+            //        Console.WriteLine("Original Array: " + string.Join(", ", numbers));
+            //        Console.Write("Enter a number to insert: ");
+            //        int newNumber = Convert.ToInt32(Console.ReadLine());
+            //        Console.WriteLine($"Enter position (FIRST / MIDDLE / LAST / or a number 0-–{numbers.Length}):");
+            //        Console.Write("Enter input word: ");
+            //        string input = Console.ReadLine();
+            //        int[] updatedArray;
+            //        switch (input)
+            //        {
+            //            case "FIRST":
+            //                updatedArray = Insert.InsertAtFirstPosition(numbers, newNumber);
+            //                break;
+            //            case "MIDDLE":
+            //                updatedArray = Insert.InsertAtMiddlePosition(numbers, newNumber);
+            //                break;
+            //            case "LAST":
+            //                updatedArray = Insert.InsertAtLastPosition(numbers, newNumber);
+            //                break;
+            //            default:
+            //                // 🧠 If user entered a number, try to parse it
+            //                if (int.TryParse(input, out int userPosition))
+            //                {
+            //                    // Convert user position (1-based) to array index (0-based)
+            //                    int index = userPosition - 1;
+            //                    updatedArray = Insert.InsertAtGivenPosition(numbers, newNumber, index + 1);
+            //                }
+            //                else
+            //                {
+            //                    Console.WriteLine("Invalid input! Please enter FIRST, MIDDLE, LAST, or a number.");
+            //                    return;
+            //                }
+            //                break;
 
-        //        }
+            //        }
 
-        //        Console.WriteLine("\nUpdated Array: " + string.Join(", ", updatedArray));
-        //    //}
+            //        Console.WriteLine("\nUpdated Array: " + string.Join(", ", updatedArray));
+            //    //}
+            Console.Write("Enter how many numbers you want to store: ");
+            int size = Convert.ToInt32(Console.ReadLine());
+
+            int[] numbers = new int[size];
+
+            Console.WriteLine("\nEnter the numbers:");
+            for (int i = 0; i < size; i++)
+            {
+                Console.Write($"Number {i + 1}: ");
+                numbers[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            Console.Write("\nEnter a number to check if it exists in the array: ");
+            int searchNumber = Convert.ToInt32(Console.ReadLine());
+
+            // Create object of the separate class
+            ArrayNumberCheck numberSearch = new ArrayNumberCheck();
+
+            bool exists = numberSearch.CheckNumber(numbers, searchNumber);
+
+            if (exists)
+                Console.WriteLine($"\nThe number {searchNumber} exists in the array.");
+            else
+                Console.WriteLine($"\nThe number {searchNumber} does NOT exist in the array.");
+
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadKey();
+
         }
     }
 }
