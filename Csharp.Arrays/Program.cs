@@ -124,33 +124,36 @@ namespace SumOfNaturalNumbers
 
             //        Console.WriteLine("\nUpdated Array: " + string.Join(", ", updatedArray));
             //    //}
-            Console.Write("Enter how many numbers you want to store: ");
-            int size = Convert.ToInt32(Console.ReadLine());
+            //if (1 == 0)
+            //{
+            //    Console.Write("Enter how many numbers you want to store: ");
+            //    int size = Convert.ToInt32(Console.ReadLine());
 
-            int[] numbers = new int[size];
+            //    int[] numbers = new int[size];
 
-            Console.WriteLine("\nEnter the numbers:");
-            for (int i = 0; i < size; i++)
-            {
-                Console.Write($"Number {i + 1}: ");
-                numbers[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            //    Console.WriteLine("\nEnter the numbers:");
+            //    for (int i = 0; i < size; i++)
+            //    {
+            //        Console.Write($"Number {i + 1}: ");
+            //        numbers[i] = Convert.ToInt32(Console.ReadLine());
+            //    }
 
-            Console.Write("\nEnter a number to check if it exists in the array: ");
-            int searchNumber = Convert.ToInt32(Console.ReadLine());
+            //    Console.Write("\nEnter a number to check if it exists in the array: ");
+            //    int searchNumber = Convert.ToInt32(Console.ReadLine());
 
-            // Create object of the separate class
-            ArrayNumberCheck numberSearch = new ArrayNumberCheck();
+            //    // Create object of the separate class
+            //    ArrayNumberCheck numberSearch = new ArrayNumberCheck();
 
-            bool exists = numberSearch.CheckNumber(numbers, searchNumber);
+            //    bool exists = numberSearch.CheckNumber(numbers, searchNumber);
 
-            if (exists)
-                Console.WriteLine($"\nThe number {searchNumber} exists in the array.");
-            else
-                Console.WriteLine($"\nThe number {searchNumber} does NOT exist in the array.");
+            //    if (exists)
+            //        Console.WriteLine($"\nThe number {searchNumber} exists in the array.");
+            //    else
+            //        Console.WriteLine($"\nThe number {searchNumber} does NOT exist in the array.");
 
-            Console.WriteLine("\nPress any key to exit...");
-            Console.ReadKey();
+            //    Console.WriteLine("\nPress any key to exit...");
+            //    Console.ReadKey();
+            //}
 
         }
     }
