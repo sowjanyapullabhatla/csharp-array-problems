@@ -3,6 +3,7 @@ using System;
 using ReverseArrayApp;
 using InsertArray;
 using ArrayOperations;
+using NameReverseArrays;
 using System.ComponentModel.Design;
 
 
@@ -12,28 +13,30 @@ namespace SumOfNaturalNumbers
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("enter SUMAVG for sum and average of numbers");
-
             //if (1 == 0)
             //{
-            //    // Sum of n natural numbers
-            //    Console.Write("Enter a positive integer: ");
-            //    int n = Convert.ToInt32(Console.ReadLine());
+            //    console.writeline("enter sumavg for sum and average of numbers");
+
+            //    // sum of n natural numbers
+            //    console.write("enter a positive integer: ");
+            //    int n = convert.toint32(console.readline());
 
             //    if (n <= 0)
             //    {
-            //        Console.WriteLine("Please enter a number greater than zero.");
+            //        console.writeline("please enter a number greater than zero.");
             //        return;
             //    }
 
-            //    // Create object of SumCalculator class
-            //    SumCalculator calculator = new SumCalculator();
+            //    // create object of sumcalculator class
+            //    //sumcalculator calculator = new sumcalculator();
 
-            //    // Call the renamed method
-            //    int sum = calculator.NaturalAdd(n);
+            //    // call the renamed method
+            //    //int sum = calculator.naturaladd(n);
+            //    int sum = sumcalculator.naturaladd(n);
 
-            //    Console.WriteLine($"\nSum of first {n} natural numbers is: {sum}");
+            //    console.writeline($"\nsum of first {n} natural numbers is: {sum}");
             //}
+
             //if (1 == 0)
             //{
             //    Console.Write("Enter the number of elements in the array: ");
@@ -154,7 +157,77 @@ namespace SumOfNaturalNumbers
             //    Console.WriteLine("\nPress any key to exit...");
             //    Console.ReadKey();
             //}
+            // Console.WriteLine("Enter any word: ");
+            // String Word = Console.ReadLine();
+
+            // // Create object for name reverse class
+            //// string result = Revesestring(Word);
+
+            // Console.WriteLine("\nPress any key to exit..");
+            // Console.ReadKey();
+            // Take string input from user
+            // Take input string from user
+            Console.Write("Enter a string: ");
+            string input = Console.ReadLine();
+
+            // Convert string to character array
+            char[] chars = input.ToCharArray();
+
+            // Boolean array to mark visited characters
+            bool[] visited = new bool[chars.Length];
+
+            Console.WriteLine("\nCharacter Frequency:");
+
+            // To store duplicates at the end
+            string duplicates = "";
+            bool hasDuplicates = false;
+
+            // Loop to count frequency of each character
+            for (int i = 0; i < chars.Length; i++)
+            {
+                // Skip already visited characters
+                if (visited[i])
+                    continue;
+
+                int count = 1;
+
+                // Compare current char with remaining characters
+                for (int j = i + 1; j < chars.Length; j++)
+                {
+                    if (chars[i] == chars[j])
+                    {
+                        count++;
+                        visited[j] = true;
+                    }
+                }
+
+                // Print frequency
+                Console.WriteLine($"{chars[i]} - {count}");
+
+                // If this character appeared more than once, add to duplicate list
+                if (count > 1)
+                {
+                    if (duplicates.Length > 0)
+                        duplicates += ", ";
+
+                    duplicates += chars[i];
+                    hasDuplicates = true;
+                }
+            }
+
+            // Display all duplicates at the end
+            Console.WriteLine("\nDuplicate Characters:");
+            if (hasDuplicates)
+                Console.WriteLine(duplicates);
+            else
+                Console.WriteLine("No duplicate characters found.");
 
         }
+        }
+
+       // private static string Revesestring(string? word)
+        //{
+            // throw new NotImplementedException();
+            //  int length_var = word.Length.
+        //}
     }
-}
